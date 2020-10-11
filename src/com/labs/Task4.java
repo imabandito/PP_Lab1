@@ -11,17 +11,18 @@ public class Task4 {
     private static int num2;
     private static int n;
     /**
-     * Function implements Interval() and Run() functions
+     * Function deploys Interval() and Run() functions
      */
     public static void Run(){
-        Interval();
-        Fibo();
+        if(Interval())
+            Fibo();
     }
 
     /**
      * Function scans interval [a;b], prints even numbers ascending, odd numbers descending and sum
+     * @return boolean
      */
-    public  static void Interval(){
+    public  static boolean Interval(){
         int sum = 0;
 
         Scanner sc = new Scanner(System.in);
@@ -30,55 +31,30 @@ public class Task4 {
         a = sc.nextInt();
         System.out.print("               b: ");
         b = sc.nextInt();
-
-        int oddSum = 0;
-        int evenSum = 0;
-        System.out.println("\nEven ascending: ");
-        for (int i = a;i<=b;i++){
-            if(i%2==0){
-                System.out.print(i + " ");
-                evenSum+=i;
-            }
-        }
-        System.out.println("\nOdd descending: ");
-        for (int i = b;i>=a;i--){
-            if(i%2!=0){
-                System.out.print(i + " ");
-                oddSum+=i;
-            }
-        }
-
-       /* if(a%2 == 0){
-
-
-            for (int i = a; i<=b; i+=2) {
-                System.out.print(i + " ");
-                sum+=i;
-                if(i+2==b) {
-                    biggestOdd = b - 1;
-                    biggestEven = i;
+        if(a >= 0 && a<b) {
+            int oddSum = 0;
+            int evenSum = 0;
+            System.out.println("\nEven ascending: ");
+            for (int i = a; i <= b; i++) {
+                if (i % 2 == 0) {
+                    System.out.print(i + " ");
+                    evenSum += i;
                 }
             }
             System.out.println("\nOdd descending: ");
-            for (int i = biggestOdd; i>a; i-=2) {
-                System.out.print(i + " ");
-                sum+=i;
+            for (int i = b; i >= a; i--) {
+                if (i % 2 != 0) {
+                    System.out.print(i + " ");
+                    oddSum += i;
+                }
             }
-        }else   {
 
-            System.out.println("Even ascending: ");
-            for (int i = a+1; i<=b; i+=2) {
-                System.out.print(i + " ");
-                sum+=i;
-            }
-            System.out.println("\nOdd descending: ");
-            for (int i = b-1; i>=a; i-=2) {
-                System.out.print(i + " ");
-                sum+=i;
-            }
-        }*/
-
-        System.out.println("\nSum of odd and even: "+sum+"\n");
+            System.out.println("\nSum of even: " + evenSum + "\nSum of odd: "+oddSum);
+            return true;
+        }else{
+            System.out.println("Wrong numbers!");
+            return false;
+        }
     }
 
     /**

@@ -13,7 +13,6 @@ public class Main {
     /**
      * In this function you can choose which task to launch
      * @param args the command line arguments
-
      */
     public static void main(String[] args) {
         int progNumber = -1;
